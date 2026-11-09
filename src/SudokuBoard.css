@@ -1,0 +1,139 @@
+.sd-wrap {
+  --sd-bg: #ffffff;
+  --sd-fg: #1b1f24;
+  --sd-given: #1b1f24;
+  --sd-entry: #1a5fd0;
+  --sd-note: #5b6572;
+  --sd-line: #c3cad4;
+  --sd-box-line: #1b1f24;
+  --sd-peer: #eef2f9;
+  --sd-same: #cfe0f7;
+  --sd-selected: #ffe27a;
+  --sd-hl: #cdeed6;
+  --sd-bad: #c4202f;
+  --sd-bad-bg: #fde3e6;
+  --sd-btn: #f1f3f6;
+  --sd-btn-on: #1a5fd0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: min(100%, 480px);
+  color: var(--sd-fg);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  .sd-wrap {
+    --sd-bg: #14181d;
+    --sd-fg: #e8ebef;
+    --sd-given: #e8ebef;
+    --sd-entry: #6ea8ff;
+    --sd-note: #9aa5b3;
+    --sd-line: #3a424d;
+    --sd-box-line: #cfd5dd;
+    --sd-peer: #1d242d;
+    --sd-same: #25416b;
+    --sd-selected: #6b5a12;
+    --sd-hl: #1f4a2c;
+    --sd-bad: #ff7b86;
+    --sd-bad-bg: #4a1d23;
+    --sd-btn: #222932;
+    --sd-btn-on: #3b7ddd;
+  }
+}
+
+.sd-board {
+  container-type: inline-size;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+  width: 100%;
+  aspect-ratio: 1;
+  box-sizing: border-box;
+  border: 2px solid var(--sd-box-line);
+  background: var(--sd-bg);
+  user-select: none;
+  outline: none;
+}
+
+.sd-board:focus-visible {
+  box-shadow: 0 0 0 3px var(--sd-entry);
+}
+
+.sd-cell {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border-right: 1px solid var(--sd-line);
+  border-bottom: 1px solid var(--sd-line);
+  background: var(--sd-bg);
+  font-size: 6cqw;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.sd-cell--box-r { border-right: 2px solid var(--sd-box-line); }
+.sd-cell--box-b { border-bottom: 2px solid var(--sd-box-line); }
+.sd-cell--last-c { border-right: 0; }
+.sd-cell--last-r { border-bottom: 0; }
+
+.sd-cell--given { color: var(--sd-given); font-weight: 650; }
+.sd-cell--entry { color: var(--sd-entry); }
+
+.sd-cell--peer { background: var(--sd-peer); }
+.sd-cell--same { background: var(--sd-same); }
+.sd-cell--hl { background: var(--sd-hl); }
+.sd-cell--selected { background: var(--sd-selected); }
+.sd-cell--bad { background: var(--sd-bad-bg); color: var(--sd-bad); }
+
+.sd-notes {
+  position: absolute;
+  inset: 3%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  place-items: center;
+  font-size: 2.3cqw;
+  font-weight: 500;
+  color: var(--sd-note);
+}
+
+.sd-note--match {
+  color: var(--sd-fg);
+  font-weight: 800;
+}
+
+.sd-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sd-pad {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 6px;
+}
+
+.sd-tools {
+  display: flex;
+  gap: 8px;
+}
+
+.sd-btn {
+  padding: 10px 0;
+  border: 0;
+  border-radius: 8px;
+  background: var(--sd-btn);
+  color: var(--sd-fg);
+  font: inherit;
+  font-size: 1.05rem;
+  cursor: pointer;
+}
+
+.sd-btn:disabled { opacity: 0.5; cursor: default; }
+.sd-btn--wide { flex: 1; font-size: 0.9rem; }
+.sd-btn--on { background: var(--sd-btn-on); color: #fff; }

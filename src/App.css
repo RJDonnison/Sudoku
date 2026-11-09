@@ -1,0 +1,70 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  width: min(100%, 480px);
+  margin: 0 auto;
+  padding: 16px;
+  box-sizing: border-box;
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
+}
+
+.app > * {
+  width: 100%;
+}
+
+.status {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  height: 4.8em;
+  overflow: hidden;
+  font-variant-numeric: tabular-nums;
+}
+
+.status > * {
+  display: block;
+  height: 1.4em;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.muted {
+  opacity: 0.65;
+  font-size: 0.9em;
+}
+
+.scrub {
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+.row button {
+  padding: 8px 14px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.row button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.row .primary {
+  min-width: 90px;
+  font-weight: 600;
+}
